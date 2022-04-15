@@ -34,6 +34,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TodoistDesktopRibbon));
             this.tab1 = this.Factory.CreateRibbonTab();
             this.groupTodoistDesktop = this.Factory.CreateRibbonGroup();
             this.btnTodoistDesktopAdd = this.Factory.CreateRibbonButton();
@@ -57,8 +58,11 @@
             // 
             // btnTodoistDesktopAdd
             // 
+            this.btnTodoistDesktopAdd.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.btnTodoistDesktopAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnTodoistDesktopAdd.Image")));
             this.btnTodoistDesktopAdd.Label = "Add to Todoist Desktop";
             this.btnTodoistDesktopAdd.Name = "btnTodoistDesktopAdd";
+            this.btnTodoistDesktopAdd.ShowImage = true;
             this.btnTodoistDesktopAdd.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnTodoistDesktopAdd_Click);
             // 
             // TodoistDesktopRibbon

@@ -49,15 +49,20 @@ namespace TodoistDesktopLinker
 
                 System.Windows.Forms.Clipboard.SetText(todoistTaskName);
 
-                System.Windows.Forms.MessageBox.Show(todoistTaskName);
+                //System.Windows.Forms.MessageBox.Show(todoistTaskName);
                 //System.Windows.Forms.MessageBox.Show(currentMailItem.Subject);
                 //System.Windows.Forms.MessageBox.Show(messageID);
-
-
             }
+            
+            
+            // Execute the AutoHotKey automation to open up a Todoist Window and put the task in there
+            System.Diagnostics.Process externalCommand = new System.Diagnostics.Process();
 
-            //System.Diagnostics.Process.Start("firefox.exe");
+            // Set the working directory for the AHK compiled script or otherwise it will end up crashing
+            externalCommand.StartInfo.WorkingDirectory = AppContext.BaseDirectory;
+            externalCommand.StartInfo.FileName = "TodoistDesktopAutomation.exe";
 
+            externalCommand.Start();
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
